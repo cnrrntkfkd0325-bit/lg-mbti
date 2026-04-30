@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LG 트윈스 타자 MBTI 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Black+Han+Sans&display=swap');
+    :root {
+      --pink: #d4185a;
+      --pink-bg: #e0195f;
+      --pink-light: #f5c6d8;
+      --black: #111111;
+      --white: #ffffff;
+      --gray: #f0f0f0;
+      --gray2: #666666;
+      --border: rgba(0,0,0,0.10);
+      --border-w: rgba(255,255,255,0.25);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: var(--pink-bg); color: var(--black); min-height: 100vh; overflow-x: hidden; }
+    .wrap { max-width: 500px; margin: 0 auto; padding: 0 18px 80px; }
+
+    /* 헤더 */
+    .topbar { display: flex; align-items: center; justify-content: space-between; padding: 18px 0 0; }
+    .lg-badge { display: flex; align-items: center; gap: 8px; font-family: 'Black Han Sans', sans-serif; font-size: 15px; color: var(--white); }
+    .lg-c { width: 28px; height: 28px; border-radius: 50%; background: var(--black); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 900; }
+    .back-btn { font-size: 12px; color: var(--white); cursor: pointer; padding: 5px 12px; border: 1px solid var(--border-w); border-radius: 20px; transition: all .2s; display: none; }
+    .back-btn:hover { background: rgba(255,255,255,0.15); }
+
+    /* 인트로 */
+    #s-intro { padding-top: 24px; }
+    .intro-box { background: var(--black); border-radius: 22px; padding: 32px 20px 28px; text-align: center; position: relative; overflow: hidden; margin-bottom: 12px; }
+    .intro-box::before { content: 'LG'; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); font-family: 'Black Han Sans', sans-serif; font-size: 160px; color: rgba(255,255,255,0.04); pointer-events: none; }
+    .intro-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--pink-light); border: 1px solid rgba(255,255,255,0.2); padding: 4px 14px; border-radius: 20px; margin-bottom: 14px; }
+    .intro-title { font-family: 'Black Han Sans', sans-serif; font-size: 28px; line-height: 1.3; color: var(--white); margin-bottom: 10px; }
+    .intro-title em { color: var(--pink-light); font-style: normal; }
+    .intro-desc { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.75; }
+
+    /* 선수 카드 */
+    .player-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 12px; }
+    .pc { background: var(--white); border-radius: 14px; padding: 12px 8px; text-align: center; transition: transform .18s, box-shadow .18s; }
+    .pc:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+    .pc-av { width: 38px; height: 38px; border-radius: 50%; background: var(--black); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 900; margin: 0 auto 7px; letter-spacing: -0.5px; }
+    .pc-nm { font-size: 12px; font-weight: 700; color: var(--black); }
+    .pc-pos { font-size: 9px; color: var(--gray2); margin-top: 2px; }
+    .pc-tag { font-size: 9px; color: var(--pink); margin-top: 4px; font-weight: 700; }
+
+    .start-btn { width: 100%; padding: 16px; background: var(--black); color: var(--white); font-family: 'Black Han Sans', sans-serif; font-size: 17px; letter-spacing: 1px; border: none; border-radius: 14px; cursor: pointer; transition: all .2s; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+    .start-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.4); }
+
+    /* 퀴즈 */
+    #s-quiz { display: none; padding-top: 20px; }
+    .prog-area { margin-bottom: 22px; }
+    .prog-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .prog-num { font-size: 11px; font-weight: 700; color: var(--white); }
+    .prog-cat { font-size: 11px; color: rgba(255,255,255,0.7); }
+    .prog-bar { height: 4px; background: rgba(255,255,255,0.25); border-radius: 2px; overflow: hidden; }
+    .prog-fill { height: 100%; background: var(--black); border-radius: 2px; transition: width .45s cubic-bezier(.4,0,.2,1); }
+    .q-card { background: var(--white); border-radius: 20px; padding: 24px 20px; animation: up .3s ease; }
+    @keyframes up { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+    .q-tag { font-size: 9px; font-weight: 700; color: var(--pink); letter-spacing: 2px; margin-bottom: 10px; }
+    .q-txt { font-size: 17px; font-weight: 700; line-height: 1.6; margin-bottom: 6px; color: var(--black); }
+    .q-ctx { font-size: 12px; color: var(--gray2); margin-bottom: 20px; line-height: 1.65; }
+    .choice { display: block; width: 100%; background: var(--gray); border: 2px solid transparent; border-radius: 13px; padding: 15px 16px; margin-bottom: 9px; cursor: pointer; text-align: left; color: var(--black); font-family: 'Noto Sans KR', sans-serif; font-size: 13px; line-height: 1.55; transition: all .18s; }
+    .choice:last-child { margin-bottom: 0; }
+    .choice:hover { border-color: var(--pink); background: var(--white); transform: translateX(4px); }
+    .choice-lbl { display: inline-block; font-size: 9px; font-weight: 700; color: var(--pink); letter-spacing: 1px; margin-right: 8px; vertical-align: middle; }
+
+    /* 결과 */
+    #s-result { display: none; padding-top: 16px; }
+    .res-card { background: var(--white); border-radius: 22px; overflow: hidden; margin-bottom: 12px; animation: up .4s ease; box-shadow: 0 4px 24px rgba(0,0,0,0.15); }
+    .res-top { padding: 30px 22px 24px; text-align: center; position: relative; overflow: hidden; }
+    .res-top-bg { position: absolute; inset: 0; opacity: .08; }
+    .res-emoji { font-size: 58px; display: block; margin-bottom: 10px; position: relative; z-index: 1; }
+    .res-type { font-family: 'Black Han Sans', sans-serif; font-size: 44px; letter-spacing: 5px; position: relative; z-index: 1; margin-bottom: 4px; }
+    .res-name { font-size: 18px; font-weight: 700; position: relative; z-index: 1; color: var(--black); }
+    .res-sub { font-size: 12px; color: var(--gray2); position: relative; z-index: 1; margin-top: 5px; line-height: 1.6; }
+    .res-player { display: flex; align-items: flex-start; gap: 14px; padding: 18px 20px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .res-av { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 900; flex-shrink: 0; border: 2px solid var(--pink); background: var(--black); color: var(--white); letter-spacing: -0.5px; }
+    .res-p-lbl { font-size: 9px; font-weight: 700; color: var(--pink); letter-spacing: 1.5px; margin-bottom: 4px; }
+    .res-p-nm { font-size: 16px; font-weight: 700; color: var(--black); }
+    .res-p-info { font-size: 11px; color: var(--gray2); margin-top: 3px; }
+    .res-p-desc { font-size: 12px; color: var(--gray2); margin-top: 7px; line-height: 1.75; }
+    .res-stats { display: grid; grid-template-columns: repeat(3,1fr); border-bottom: 1px solid var(--border); }
+    .rs { padding: 12px 8px; text-align: center; border-right: 1px solid var(--border); }
+    .rs:last-child { border-right: none; }
+    .rs-v { font-size: 18px; font-weight: 700; color: var(--pink); }
+    .rs-l { font-size: 10px; color: var(--gray2); margin-top: 3px; }
+    .res-traits { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 16px 20px; border-bottom: 1px solid var(--border); }
+    .trait { background: var(--gray); border-radius: 10px; padding: 11px 13px; }
+    .trait-lbl { font-size: 10px; color: var(--gray2); font-weight: 700; letter-spacing: .5px; margin-bottom: 7px; }
+    .trait-bar { height: 5px; background: rgba(0,0,0,0.08); border-radius: 3px; overflow: hidden; margin-bottom: 5px; }
+    .trait-fill { height: 100%; border-radius: 3px; }
+    .trait-val { font-size: 11px; font-weight: 700; }
+    .res-desc { padding: 16px 20px; border-bottom: 1px solid var(--border); }
+    .res-desc-lbl { font-size: 9px; font-weight: 700; color: var(--gray2); letter-spacing: 2px; margin-bottom: 8px; }
+    .res-desc-txt { font-size: 13px; color: var(--gray2); line-height: 1.85; }
+    .res-tags { display: flex; gap: 6px; flex-wrap: wrap; padding: 14px 20px; border-bottom: 1px solid var(--border); }
+    .rtag { font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 20px; letter-spacing: .5px; }
+    .res-btns { padding: 16px 20px; display: flex; flex-direction: column; gap: 8px; }
+    .btn-retry { background: var(--gray); border: none; color: var(--gray2); font-size: 13px; font-weight: 500; padding: 13px; border-radius: 12px; cursor: pointer; font-family: 'Noto Sans KR', sans-serif; transition: all .2s; }
+    .btn-retry:hover { background: #e0e0e0; color: var(--black); }
+    .btn-share { background: var(--black); border: none; color: var(--white); font-size: 13px; font-weight: 700; padding: 14px; border-radius: 12px; cursor: pointer; font-family: 'Noto Sans KR', sans-serif; transition: all .2s; box-shadow: 0 4px 16px rgba(0,0,0,0.25); }
+    .btn-share:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(0,0,0,0.35); }
+    .toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(16px); background: var(--black); color: var(--white); font-size: 13px; font-weight: 700; padding: 10px 24px; border-radius: 40px; opacity: 0; transition: all .3s; pointer-events: none; z-index: 999; white-space: nowrap; }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="lg-badge"><div class="lg-c">LG</div>트윈스 타자 MBTI</div>
+    <div class="back-btn" id="back-btn" onclick="goBack()">← 처음으로</div>
+  </div>
+
+  <div id="s-intro">
+    <div style="height:20px"></div>
+    <div class="intro-box">
+      <div class="intro-tag">2026 SEASON · BATTER TYPE TEST</div>
+      <h1 class="intro-title">나는 LG 트윈스<br><em>어떤 타자</em> 스타일?</h1>
+      <p class="intro-desc">12가지 질문으로 알아보는<br>내 타격 성향과 닮은 LG 선수</p>
+    </div>
+    <div class="player-grid">
+      <div class="pc"><div class="pc-av">#51</div><div class="pc-nm">홍창기</div><div class="pc-pos">우익수 #51</div><div class="pc-tag">👁 눈야구의 달인</div></div>
+      <div class="pc"><div class="pc-av">#53</div><div class="pc-nm">천성호</div><div class="pc-pos">내야수 #53</div><div class="pc-tag">⚡ 배드볼 히터</div></div>
+      <div class="pc"><div class="pc-av">#23</div><div class="pc-nm">오스틴</div><div class="pc-pos">1루수 #23</div><div class="pc-tag">💣 리그급 파워</div></div>
+      <div class="pc"><div class="pc-av">#2</div><div class="pc-nm">문보경</div><div class="pc-pos">3루수 #2</div><div class="pc-tag">🔥 빅게임 플레이어</div></div>
+      <div class="pc"><div class="pc-av">#10</div><div class="pc-nm">오지환</div><div class="pc-pos">유격수 #10</div><div class="pc-tag">👑 원클럽 레전드</div></div>
+      <div class="pc"><div class="pc-av">#8</div><div class="pc-nm">문성주</div><div class="pc-pos">외야수 #8</div><div class="pc-tag">💪 노력의 천재</div></div>
+      <div class="pc"><div class="pc-av">#27</div><div class="pc-nm">박동원</div><div class="pc-pos">포수 #27</div><div class="pc-tag">💥 풀스윙 포수</div></div>
+      <div class="pc"><div class="pc-av">#17</div><div class="pc-nm">박해민</div><div class="pc-pos">중견수 #17</div><div class="pc-tag">🦅 중원의 사령관</div></div>
+      <div class="pc"><div class="pc-av">#4</div><div class="pc-nm">신민재</div><div class="pc-pos">2루수 #4</div><div class="pc-tag">🥇 골든글러브</div></div>
+    </div>
+    <button class="start-btn" onclick="startQuiz()">테스트 시작하기 ⚾</button>
+  </div>
+
+  <div id="s-quiz">
+    <div class="prog-area">
+      <div class="prog-top"><span class="prog-num" id="q-num">1 / 12</span><span class="prog-cat" id="q-cat"></span></div>
+      <div class="prog-bar"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+    </div>
+    <div id="q-area"></div>
+  </div>
+
+  <div id="s-result"><div id="result-area"></div></div>
+</div>
+<div class="toast" id="toast">클립보드에 복사됐어요 🎉</div>
+
+<script>
+const Qs = [
+  { cat:'타석 접근법', txt:'첫 타석, 초구 한가운데 직구. 어떻게 해?', ctx:'투수 리듬이 아직 파악 안 된 상황이에요.',
+    choices:[{txt:'👀 일단 본다 — 볼배합부터 읽어야 진짜 타격이다', axes:{E:2,C:1}},{txt:'🔥 바로 친다 — 좋은 공은 무조건 치는 거야', axes:{S:2,P:1}}]},
+  { cat:'볼 선구', txt:'스트라이크존 아슬아슬한 바깥쪽 공. 카운트 2-1.',
+    choices:[{txt:'🎯 참는다 — 내 존이 아니면 절대 안 친다', axes:{E:2,C:1}},{txt:'⚡ 뻗어서 친다 — 배드볼이어도 내 스윙만 믿는다', axes:{S:2,P:1}}]},
+  { cat:'타격 목표', txt:'타석에 들어설 때 가장 먼저 생각하는 건?',
+    choices:[{txt:'📊 어떻게든 출루한다 — 볼넷이어도 성공', axes:{E:2,C:1}},{txt:'💥 장타를 노린다 — 한 방이 경기를 바꾼다', axes:{S:1,P:2}}]},
+  { cat:'위기 상황', txt:'2사 만루, 1점 뒤진 상황. 어떤 마음으로 들어서?', ctx:'팀 전체가 나를 바라보는 순간이에요.',
+    choices:[{txt:'💪 이런 순간을 위해 야구했다 — 오히려 더 신난다', axes:{A:2,H:2}},{txt:'🧊 평소처럼 하면 된다 — 덤덤하게 내 스윙을 생각한다', axes:{D:1,L:2}}]},
+  { cat:'팀 전술', txt:'타격감이 폭발 중인데 감독이 번트 사인을 냈다.',
+    choices:[{txt:'😤 사인 무시하고 강공 — 지금 내 감은 절대 틀리지 않는다', axes:{A:2,S:1,H:1}},{txt:'🤝 번트한다 — 팀을 위한 플레이가 진짜 야구다', axes:{D:2,L:1}}]},
+  { cat:'슬럼프 대처', txt:'3경기 연속 무안타. 오늘 경기 전 어떻게 해?',
+    choices:[{txt:'📹 어젯밤 내 타격 영상을 뜯어봤다 — 원인이 반드시 있다', axes:{E:1,L:2,D:1}},{txt:'🏋️ 배팅 케이지에서 더 많이 쳤다 — 몸이 기억하게 반복한다', axes:{S:1,H:1,A:1,P:1}}]},
+  { cat:'수비 스타일', txt:'잡을 수도 있고 못 잡을 수도 있는 애매한 타구가 날아온다.',
+    choices:[{txt:'🦁 무조건 몸을 던진다 — 최선을 다한다', axes:{A:2,H:1}},{txt:'🎯 확실한 것만 잡는다 — 실수가 더 크다', axes:{D:2,L:1}}]},
+  { cat:'주루 판단', txt:'1루에서 도루 찬스. 투수 모션이 살짝 크다.',
+    choices:[{txt:'💨 바로 뛴다 — 기회는 잡는 거다', axes:{A:2,S:1,H:1}},{txt:'🧠 한 박자 더 확인한다 — 아웃되면 흐름이 끊긴다', axes:{D:1,L:2,E:1}}]},
+  { cat:'타격 루틴', txt:'경기 전 타격 준비 루틴이 있어?',
+    choices:[{txt:'📋 항상 같은 순서로 철저하게 — 루틴이 흔들리면 타격도 흔들린다', axes:{L:2,E:1,D:1}},{txt:'🌊 그날 몸 상태 보고 유연하게 — 틀에 갇히면 안 된다', axes:{H:1,S:1,A:1}}]},
+  { cat:'팀 케미', txt:'슬럼프로 힘들어하는 후배 선수가 있다. 나는?',
+    choices:[{txt:'🍚 먼저 밥 사주고 야구 얘기 들어준다', axes:{H:2,A:1}},{txt:'🏟️ 내 플레이로 보여준다 — 말보다 행동이 먼저다', axes:{L:2,D:1}}]},
+  { cat:'멘탈 회복', txt:'결정적인 순간에 삼진. 팀이 졌다. 집에 돌아온 나는?',
+    choices:[{txt:'😤 잠이 안 온다 — 다음 타석에서 반드시 만회한다', axes:{H:2,A:1,S:1}},{txt:'😌 샤워하고 잔다 — 경기 끝나면 깨끗이 잊는다', axes:{L:2,D:1,E:1}}]},
+  { cat:'이상적인 경기', txt:'내가 꿈꾸는 완벽한 경기는?',
+    choices:[{txt:'🔥 홈런+멀티히트 — 임팩트 있게 경기를 뒤집는 히어로', axes:{P:2,S:1,A:1,H:1}},{txt:'🎯 볼넷+안타+팀 승리 — 조용히 팀에 기여한 공헌', axes:{E:2,C:1,D:1,L:1}}]},
+];
+
+const types = {
+  ECAH: { emoji:'👁', name:'눈야구 리드오프', color:'#d4185a', bg:'rgba(212,24,90,0.08)',
+    player:{nm:'홍창기', pos:'우익수 #51', av:'#51', s1:{v:'볼넷',l:'리그 TOP'}, s2:{v:'출루율',l:'리그 TOP'}, s3:{v:'리드오프',l:'타순'}},
+    pDesc:'스윙보다 눈이 먼저 가는 리드오프의 교과서. 볼넷과 컨택으로 경기 초반부터 득점 찬스를 만들고, 팀이 힘들 땐 가장 열정적으로 반응하는 1번 타자.',
+    desc:'공을 끝까지 보는 선구안이 최고의 무기예요. 삼진보다 볼넷, 홈런보다 안타가 가치있다고 믿고, 타석에서 절대 불필요한 스윙을 하지 않아요. 팀이 위기일 때 가장 뜨겁게 반응하는 리드오프 스타일이에요.',
+    traits:[{l:'선구안',v:96,c:'#d4185a'},{l:'컨택',v:90,c:'#4a90d9'},{l:'출루율',v:94,c:'#f5a623'},{l:'열정',v:82,c:'#2da84f'}],
+    tags:['눈야구형 E','컨택형 C','공격형 A','열정형 H'] },
+
+  SPAH: { emoji:'⚡', name:'충격의 배드볼 히터', color:'#f5a623', bg:'rgba(245,166,35,0.08)',
+    player:{nm:'천성호', pos:'내야수 #53', av:'#53', s1:{v:'배드볼',l:'타격 특기'}, s2:{v:'강한 손목',l:'타격 무기'}, s3:{v:'멀티포지션',l:'포지션'}},
+    pDesc:'스트라이크존 밖의 공도 손목 스냅 하나로 안타로 만드는 배드볼 히터. 어느 포지션에서도 팀에 기여하는 슈퍼 백업의 아이콘.',
+    desc:'볼배합보다 본능이 먼저예요. 배드볼도 내 스윙으로 치면 된다는 자신감이 있고, 적극적인 스윙으로 타격을 풀어가요. 어떤 공도 내 방식으로 소화하는 독특한 타격 스타일이에요.',
+    traits:[{l:'적극성',v:94,c:'#f5a623'},{l:'파워',v:78,c:'#e84040'},{l:'배드볼',v:92,c:'#c040a0'},{l:'유연성',v:88,c:'#2da84f'}],
+    tags:['스윙형 S','파워형 P','공격형 A','열정형 H'] },
+
+  SPAL: { emoji:'💣', name:'리그급 파워 슬러거', color:'#e84040', bg:'rgba(232,64,64,0.08)',
+    player:{nm:'오스틴 딘', pos:'1루수 #23', av:'#23', s1:{v:'wRC+',l:'리그 TOP 2'}, s2:{v:'홈런',l:'팀 최다'}, s3:{v:'장타율',l:'리그 상위'}},
+    pDesc:'한국 생활 4년차, 완전히 KBO에 정착한 리그 최상위권 타자. 냉정하고 일정한 루틴으로 꾸준히 장타를 생산하는 외인 슬러거.',
+    desc:'타석에서 감정을 배제하고 본인의 스윙을 믿어요. 좋은 공이면 무조건 치고, 장타를 노리는 데 거침이 없어요. 슬럼프가 와도 루틴을 바꾸지 않는 냉정한 프로 스타일이에요.',
+    traits:[{l:'파워',v:96,c:'#e84040'},{l:'장타율',v:94,c:'#f5a623'},{l:'공격성',v:90,c:'#4a90d9'},{l:'냉정함',v:85,c:'#2da84f'}],
+    tags:['스윙형 S','파워형 P','공격형 A','냉정형 L'] },
+
+  EPAH: { emoji:'🔥', name:'빅게임 파워 히터', color:'#ff6b35', bg:'rgba(255,107,53,0.08)',
+    player:{nm:'문보경', pos:'3루수 #2', av:'#2', s1:{v:'볼넷',l:'리그 1위 경험'}, s2:{v:'20홈런',l:'100타점'}, s3:{v:'.526',l:'2025 KS 타율'}},
+    pDesc:'볼넷 리그 1위의 선구안과 20홈런-100타점의 파워를 동시에 갖춘 희귀 타입. 포스트시즌에서 더 강해지는 진짜 빅게임 플레이어.',
+    desc:'눈야구와 파워를 동시에 가진 드문 타입이에요. 볼을 잘 보면서도 결정적인 순간엔 과감하게 풀스윙을 날려요. 큰 경기일수록 더 빛나고, 팀이 힘들 때 가장 불꽃같이 타오르는 선수예요.',
+    traits:[{l:'선구안',v:88,c:'#2da84f'},{l:'파워',v:90,c:'#e84040'},{l:'클러치',v:96,c:'#f5a623'},{l:'열정',v:92,c:'#c040a0'}],
+    tags:['눈야구형 E','파워형 P','공격형 A','열정형 H'] },
+
+  SCDL: { emoji:'👑', name:'원클럽 레전드', color:'#7a40d4', bg:'rgba(122,64,212,0.08)',
+    player:{nm:'오지환', pos:'유격수 #10', av:'#10', s1:{v:'2000경기',l:'통산 출전'}, s2:{v:'리그 최고',l:'유격수 수비'}, s3:{v:'원클럽',l:'LG 헌신'}},
+    pDesc:'2026년 통산 2000경기 금자탑을 세운 LG의 살아있는 레전드. 20년 가까이 LG 유격수 한 자리를 지킨 불굴의 정신과 리그 최고의 수비력.',
+    desc:'화려한 스탯보다 팀에 헌신하는 것이 먼저예요. 경기를 냉정하게 읽고 자신의 역할에 충실하며, 수비에서 확실한 것만 잡는 완벽주의 스타일이에요. 20년 경력이 쌓은 단단한 루틴이 무기예요.',
+    traits:[{l:'수비력',v:97,c:'#7a40d4'},{l:'경험',v:99,c:'#f5a623'},{l:'냉정함',v:88,c:'#4a90d9'},{l:'헌신',v:95,c:'#2da84f'}],
+    tags:['스윙형 S','컨택형 C','수비형 D','냉정형 L'] },
+
+  SCAH: { emoji:'💪', name:'노력의 천재', color:'#4a90d9', bg:'rgba(74,144,217,0.08)',
+    player:{nm:'문성주', pos:'외야수 #8', av:'#8', s1:{v:'3할 타율',l:'2025 첫 규정'}, s2:{v:'외야수',l:'포지션'}, s3:{v:'성장',l:'노력형 선수'}},
+    pDesc:'2025 시즌 데뷔 첫 규정타석 3할 타율을 기록한 노력의 아이콘. 타고난 재능보다 끝없는 반복 훈련으로 리그 정상급 외야수로 성장한 진짜 노력의 천재.',
+    desc:'재능보다 노력을 믿는 스타일이에요. 남들보다 더 많이 연습하고, 더 많이 분석하고, 더 많이 준비해요. 결과가 안 나와도 포기하지 않고 꾸준히 자기 스윙을 갈고닦는 열정형이에요.',
+    traits:[{l:'노력',v:99,c:'#d4185a'},{l:'컨택',v:84,c:'#4a90d9'},{l:'열정',v:95,c:'#f5a623'},{l:'성장성',v:92,c:'#2da84f'}],
+    tags:['스윙형 S','컨택형 C','공격형 A','열정형 H'] },
+
+  ECDL: { emoji:'💥', name:'풀스윙 공격형 포수', color:'#00aad4', bg:'rgba(0,170,212,0.08)',
+    player:{nm:'박동원', pos:'포수 #27', av:'#27', s1:{v:'풀스윙',l:'타격 스타일'}, s2:{v:'20홈런급',l:'포수 최강 파워'}, s3:{v:'장타율',l:'포수 중 최상위'}},
+    pDesc:'포수 포지션에서 풀스윙을 구사하는 KBO 최강 파워 포수. 타석에서 절대 위축되지 않고 자신의 스윙을 믿으며 장타를 뽑아내는 공격형 포수의 아이콘.',
+    desc:'타석에서 절대 쫄지 않아요. 투수가 누구든 내 풀스윙을 믿고 크게 휘두르는 스타일이에요. 홈런 하나가 경기를 뒤집는다는 걸 알기 때문에 삼진이 나도 스윙을 줄이지 않아요.',
+    traits:[{l:'파워',v:95,c:'#e84040'},{l:'풀스윙',v:97,c:'#f5a623'},{l:'장타율',v:92,c:'#00aad4'},{l:'배짱',v:94,c:'#d4185a'}],
+    tags:['눈야구형 E','컨택형 C','수비형 D','냉정형 L'] },
+
+  ECDS: { emoji:'🦅', name:'중원의 사령관', color:'#2da84f', bg:'rgba(45,168,79,0.08)',
+    player:{nm:'박해민', pos:'중견수 #17', av:'#17', s1:{v:'중견수',l:'수비 범위 1위'}, s2:{v:'리그 최고',l:'외야 커버리지'}, s3:{v:'캡틴',l:'팀 사령관'}},
+    pDesc:'중견수 수비 범위 리그 최고. 외야 어디서든 나타나 타구를 처리하는 외야의 사령관. 조용하지만 경기 흐름을 읽고 팀 전체를 통제하는 LG의 캡틴.',
+    desc:'화려한 개인 기록보다 팀 전체를 보는 눈이 먼저예요. 중견수에서 외야 전체를 커버하며 팀의 수비를 진두지휘해요. 타석에서도 감정 없이 냉정하게 볼을 읽고, 묵묵히 팀을 위한 플레이를 해요.',
+    traits:[{l:'수비력',v:98,c:'#2da84f'},{l:'커버리지',v:97,c:'#4a90d9'},{l:'리더십',v:92,c:'#f5a623'},{l:'냉정함',v:88,c:'#d4185a'}],
+    tags:['눈야구형 E','컨택형 C','수비형 D','냉정형 L'] },
+
+  ECAL: { emoji:'🥇', name:'골든글러브 테이블세터', color:'#f5c842', bg:'rgba(245,200,66,0.08)',
+    player:{nm:'신민재', pos:'2루수 #4', av:'#4', s1:{v:'골든글러브',l:'2025 수상'}, s2:{v:'리드오프',l:'홍창기 공백 메꿈'}, s3:{v:'수비율',l:'리그 최상위'}},
+    pDesc:'2025 골든글러브 수상자. 홍창기 부상 공백을 완벽하게 메꾼 멀티 리드오프. 수비와 타격 모두 안정적인 LG 중심 내야수.',
+    desc:'루틴과 냉정함이 최대 강점이에요. 감정에 흔들리지 않고 항상 같은 수준의 플레이를 유지해요. 타석에서는 볼을 잘 보며 출루에 집중하고, 수비에서는 확실한 공만 잡는 완벽주의 스타일이에요.',
+    traits:[{l:'수비력',v:95,c:'#f5c842'},{l:'컨택',v:88,c:'#2da84f'},{l:'안정감',v:94,c:'#4a90d9'},{l:'냉정함',v:90,c:'#7a40d4'}],
+    tags:['눈야구형 E','컨택형 C','공격형 A','냉정형 L'] },
+};
+
+const fallback = {
+  ECAH:'ECAH',EPAH:'EPAH',ECAL:'ECAL',ECAS:'ECAH',
+  SPAL:'SPAL',SPAH:'SPAH',SCAL:'ECAL',SCAH:'SCAH',
+  EPDL:'ECDL',EPDH:'EPAH',SPDL:'SPAL',SPDH:'SPAL',
+  ECDH:'ECAH',ECDS:'ECDS',SCDL:'SCDL',SCDH:'SCAH',
+  PDIS:'SPAL',CDLS:'SCDL',CDIE:'ECDL',PDLE:'EPAH',
+};
+
+function calcType(s) {
+  const t1 = (s.E||0)>=(s.S||0)?'E':'S';
+  const t2 = (s.P||0)>=(s.C||0)?'P':'C';
+  const t3 = (s.A||0)>=(s.D||0)?'A':'D';
+  const t4 = (s.H||0)>=(s.L||0)?'H':'L';
+  const k = t1+t2+t3+t4;
+  if(t1==='E'&&t2==='C'&&t3==='D'&&t4==='L') return 'ECDS';
+  return types[k]?k:(fallback[k]||'ECAL');
+}
+
+let qIdx=0, scores={};
+
+function startQuiz() {
+  qIdx=0; scores={};
+  document.getElementById('s-intro').style.display='none';
+  document.getElementById('s-quiz').style.display='block';
+  document.getElementById('back-btn').style.display='block';
+  renderQ(); window.scrollTo(0,0);
+}
+function goBack() {
+  document.getElementById('s-intro').style.display='block';
+  document.getElementById('s-quiz').style.display='none';
+  document.getElementById('s-result').style.display='none';
+  document.getElementById('back-btn').style.display='none';
+  window.scrollTo(0,0);
+}
+function renderQ() {
+  const q=Qs[qIdx];
+  document.getElementById('q-num').textContent=`${qIdx+1} / ${Qs.length}`;
+  document.getElementById('q-cat').textContent=q.cat;
+  document.getElementById('prog-fill').style.width=((qIdx/Qs.length)*100)+'%';
+  document.getElementById('q-area').innerHTML=`
+    <div class="q-card">
+      <div class="q-tag">Q${qIdx+1} · ${q.cat.toUpperCase()}</div>
+      <div class="q-txt">${q.txt}</div>
+      ${q.ctx?`<div class="q-ctx">${q.ctx}</div>`:''}
+      ${q.choices.map((c,i)=>`<button class="choice" onclick="pick(${i})"><span class="choice-lbl">${i===0?'A':'B'}</span>${c.txt}</button>`).join('')}
+    </div>`;
+}
+function pick(ci) {
+  Object.entries(Qs[qIdx].choices[ci].axes).forEach(([k,v])=>scores[k]=(scores[k]||0)+v);
+  qIdx++;
+  if(qIdx>=Qs.length) showResult();
+  else renderQ();
+}
+function showResult() {
+  document.getElementById('prog-fill').style.width='100%';
+  document.getElementById('s-quiz').style.display='none';
+  document.getElementById('s-result').style.display='block';
+  const key=calcType(scores);
+  const tp=types[key];
+  const p=tp.player;
+  document.getElementById('result-area').innerHTML=`
+    <div class="res-card">
+      <div class="res-top">
+        <div class="res-top-bg" style="background:${tp.bg}"></div>
+        <span class="res-emoji">${tp.emoji}</span>
+        <div class="res-type" style="color:${tp.color}">${key}</div>
+        <div class="res-name">${tp.name}</div>
+        <div class="res-sub">2026 LG 트윈스 선수 중 나와 가장 닮은 타자 👇</div>
+      </div>
+      <div class="res-player">
+        <div class="res-av">${p.av}</div>
+        <div>
+          <div class="res-p-lbl">닮은 선수 · 2026 LG 트윈스</div>
+          <div class="res-p-nm">${p.nm}</div>
+          <div class="res-p-info">${p.pos}</div>
+          <div class="res-p-desc">${tp.pDesc}</div>
+        </div>
+      </div>
+      <div class="res-stats">
+        <div class="rs"><div class="rs-v">${p.s1.v}</div><div class="rs-l">${p.s1.l}</div></div>
+        <div class="rs"><div class="rs-v">${p.s2.v}</div><div class="rs-l">${p.s2.l}</div></div>
+        <div class="rs"><div class="rs-v">${p.s3.v}</div><div class="rs-l">${p.s3.l}</div></div>
+      </div>
+      <div class="res-traits">${tp.traits.map(t=>`<div class="trait"><div class="trait-lbl">${t.l}</div><div class="trait-bar"><div class="trait-fill" style="width:${t.v}%;background:${t.c}"></div></div><div class="trait-val" style="color:${t.c}">${t.v}</div></div>`).join('')}</div>
+      <div class="res-tags">${tp.tags.map(t=>`<span class="rtag" style="background:rgba(0,0,0,0.05);color:${tp.color};border:1px solid ${tp.color}44">${t}</span>`).join('')}</div>
+      <div class="res-desc"><div class="res-desc-lbl">나의 타격 스타일</div><div class="res-desc-txt">${tp.desc}</div></div>
+      <div class="res-btns">
+        <button class="btn-retry" onclick="startQuiz()">🔄 다시 테스트하기</button>
+        <button class="btn-share" onclick="share('${key}','${tp.name}','${p.nm}')">📋 결과 공유하기</button>
+      </div>
+    </div>`;
+  window.scrollTo(0,0);
+}
+function share(key,typeName,playerName) {
+  const txt=`나의 LG 트윈스 타자 MBTI는 ${key} — ${typeName} ${types[key].emoji}\n닮은 선수: ${playerName} (LG 트윈스)\n\n#LG트윈스 #야구MBTI #KBO2026`;
+  navigator.clipboard.writeText(txt).then(()=>{
+    const t=document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),2200);
+  });
+}
+</script>
+</body>
+</html>
